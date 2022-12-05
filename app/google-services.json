@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "991684240954",
+    "project_id": "cook-recipe-27452",
+    "storage_bucket": "cook-recipe-27452.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991684240954:android:6ec7ddb3a0d1292610b703",
+        "android_client_info": {
+          "package_name": "com.example.cookrecipe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "991684240954-fm6ib5q1p6rn1a162nn0e0prqb9kup6a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBM_YqREEoZ41jODd9Ye5BeA8VqVp86slM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "991684240954-fm6ib5q1p6rn1a162nn0e0prqb9kup6a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
