@@ -2,6 +2,7 @@ package com.example.cookrecipe
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.cookrecipe.databinding.ActivityRegisterBinding
@@ -25,7 +26,7 @@ class RegisterActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
     }
 
-    fun onClick() {
+    fun onClick(view: View) {
         viewModel.registry()
     }
 }

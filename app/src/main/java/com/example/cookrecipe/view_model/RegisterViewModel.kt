@@ -12,6 +12,6 @@ class RegisterViewModel : ViewModel() {
         if (password == passwordConf) {
             Log.d("Register", "password = $password")
         }
-        Log.d("Register", "NOTpassword = $password and $passwordConf")
+        Log.d("Register", "not_password = $password and $passwordConf")
     }
 }
