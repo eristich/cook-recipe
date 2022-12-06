@@ -59,7 +59,7 @@
             android:id="@+id/register_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onClick"
+            android:onClick="onClickCreateUser"
             android:text="Register" />
 
     </LinearLayout>
