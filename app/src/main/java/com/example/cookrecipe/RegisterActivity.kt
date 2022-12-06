@@ -15,19 +15,17 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+
         // Set viewModelProvider
         viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
+
         // Set binding modelView
-        val binding: ActivityRegisterBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_register)
+        val binding: ActivityRegisterBinding = DataBindingUtil.setContentView(this, R.layout.activity_register)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
-
-
     }
 
     fun onClick() {
         viewModel.registry()
     }
-
 }
