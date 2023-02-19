@@ -3,7 +3,7 @@ package com.example.cookrecipe
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -11,7 +11,7 @@ import com.example.cookrecipe.databinding.ActivityRegisterBinding
 import com.example.cookrecipe.view_model.RegisterViewModel
 
 
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity(), RegisterViewModel.ActivityListener {
 
     private lateinit var viewModel: RegisterViewModel
 
@@ -22,6 +22,9 @@ class RegisterActivity : AppCompatActivity() {
         // Set viewModelProvider
         viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
 
+        // Set instance of interface of activity
+        viewModel.activityListener = this
+
         // Set binding modelView
         val binding: ActivityRegisterBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_register)
@@ -31,16 +34,23 @@ class RegisterActivity : AppCompatActivity() {
         if (viewModel.getUsers().getUserAuth() == null) {
             Log.d("Auth", "User not log")
         }
+
+        val btnRegister: Button = findViewById(R.id.btn_register)
+        btnRegister.setOnClickListener {
+        }
+
+        val btnLogin: Button = findViewById(R.id.btn_login)
+        btnLogin.setOnClickListener {
+            finish() // end of activity return on login activity
+        }
+
+        viewModel.msgToast.observe(this) { message ->
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        }
+
     }
 
-    fun onClickCreateUser(view: View) {
-        val result:String? = viewModel.dataValidator()
-        // if null data is good for create new user
-        if (result == null) {
-            viewModel.registerUser()
-        }else{
-            Toast.makeText(baseContext,result,Toast.LENGTH_SHORT).show()
-        }
-        //Toast.makeText(baseContext,"User not add",Toast.LENGTH_SHORT).show()
+    override fun onClose() {
+        finish()
     }
 }
