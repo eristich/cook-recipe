@@ -15,7 +15,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="250dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
         android:orientation="vertical"
@@ -30,42 +30,56 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Username"
+            android:hint="@string/username"
             android:inputType="textPersonName"
+            android:minHeight="48dp"
             android:text="@={ViewModel.email}"
-            android:minHeight="48dp" />
+            android:autofillHints="emailAddress" />
 
         <EditText
             android:id="@+id/register_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Password"
-            android:text="@={ViewModel.password}"
+            android:hint="@string/password"
             android:inputType="textPassword"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:text="@={ViewModel.password}"
+            android:autofillHints="password" />
 
         <EditText
             android:id="@+id/register_password_conf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Confirm password"
-            android:text="@={ViewModel.passwordConf}"
+            android:hint="@string/password_conf"
             android:inputType="textPassword"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:text="@={ViewModel.passwordConf}"
+            android:importantForAutofill="no" />
 
         <Button
-            android:id="@+id/register_btn"
+            android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onClickCreateUser"
-            android:text="Register" />
+            android:onClick="@{()->ViewModel.registerUser()}"
+            android:text="@string/btn_sign_up" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="@{()->ViewModel.activityClose()}"
+            android:text="@string/sign_in" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="250dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
@@ -78,9 +92,9 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cook Recipe App"
+            android:text="@string/app_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#6200ee"
+            android:textColor="@color/purple_500"
             android:textFontWeight="1000"
             android:textSize="28sp" />
 
@@ -88,7 +102,7 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Register"
+            android:text="@string/sign_up"
             android:textSize="24sp" />
     </LinearLayout>
 
