@@ -1,10 +1,11 @@
 package com.example.cookrecipe.model.repo
 
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.tasks.await
 
 class UsersRepository {
     private var auth: FirebaseAuth = Firebase.auth
@@ -13,13 +14,11 @@ class UsersRepository {
         return auth.currentUser
     }
 
-    suspend fun createUser(email: String, password: String): Boolean {
-            val result = auth.createUserWithEmailAndPassword(email, password).await()
-            return result.user != null
-
+    fun createUser(email: String, password: String): Task<AuthResult> {
+        return auth.createUserWithEmailAndPassword(email, password)
     }
 
-    companion object {
+   /* companion object {
         const val TAG = "UserRepo"
-    }
+    }*/
 }
