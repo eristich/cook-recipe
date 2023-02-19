@@ -1,17 +1,23 @@
 package com.example.cookrecipe.view_model
 
+import android.app.Application
 import android.util.Log
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.AndroidViewModel
+import com.example.cookrecipe.R
 import com.example.cookrecipe.model.repo.UsersRepository
-import kotlinx.coroutines.launch
 
 
-class RegisterViewModel : ViewModel() {
+class RegisterViewModel(application: Application) : AndroidViewModel(application) {
+    private var usersRepository: UsersRepository = UsersRepository()
+    private val mutableMsgToast = MutableLiveData<String>()
     var email: String = ""
     var password: String = ""
     var passwordConf: String = ""
-    private var usersRepository: UsersRepository = UsersRepository()
+    val msgToast: LiveData<String> get() = mutableMsgToast
+
+    var activityListener: ActivityListener? = null
 
     fun getUsers(): UsersRepository {
         return usersRepository
@@ -19,33 +25,71 @@ class RegisterViewModel : ViewModel() {
 
     /**
      * Get data is valid for create new user
-     * @return String or null
+     * @return boolean true or false if bad data send
      */
-    fun dataValidator():String?{
-        if (email.isEmpty()){
-            return "No user name entered"
-        }else if (password.isEmpty()){
-            return "No password entered"
-        }else if (password != passwordConf){
-            return "The passwords, do not match"
+    private fun dataValidator(): Boolean {
+        Log.d(TAG, "registerUser: Data validator length of Password = " + this.password.length)
+        return if (email.isEmpty()) {
+            mutableMsgToast.value =
+                getApplication<Application>().getString(R.string.error_no_username)
+            false
+        } else if (password.isEmpty()) {
+            mutableMsgToast.value =
+                getApplication<Application>().getString(R.string.error_no_password)
+            false
+        } else if (password.length < 6) {
+            mutableMsgToast.value =
+                getApplication<Application>().getString(R.string.error_length_password)
+            false
+        } else if (password != passwordConf) {
+            mutableMsgToast.value =
+                getApplication<Application>().getString(R.string.error_password_not_match)
+            false
+        } else {
+            true
         }
-        return null
     }
 
     /**
-     * create new user into db
+     * Create new user into db white firebase
+     * @return Void
      */
-     fun registerUser() {
-        viewModelScope.launch{
-            if (usersRepository.createUser(email, password)) {
-                Log.d(TAG, "Success")
-            } else {
-                Log.d(TAG, "FAIL !")
+    fun registerUser() {
+        // Check data input
+        if (this.dataValidator()) {
+
+            val taskResult = usersRepository.createUser(email, password)
+
+            taskResult.addOnCompleteListener { tasks ->
+                Log.d(TAG, "registerUser: " + tasks.isSuccessful)
+                if (tasks.isSuccessful) {
+                    mutableMsgToast.value =
+                        getApplication<Application>().getString(R.string.success_sign_up)
+                    activityClose()
+                } else {
+                    mutableMsgToast.value =
+                        getApplication<Application>().getString(R.string.error_sign_up)
+                }
             }
         }
     }
-    companion object{
-         const val TAG:String = "Register-ModelView"
+
+    /**
+     * Set event for closing activity
+     */
+    interface ActivityListener {
+        fun onClose()
+    }
+
+    /**
+     * Close the current activity
+     */
+    fun activityClose() {
+        activityListener?.onClose()
+    }
+
+    companion object {
+        const val TAG: String = "Register-ModelView"
     }
 
 }
