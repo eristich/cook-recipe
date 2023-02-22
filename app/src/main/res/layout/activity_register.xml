@@ -74,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:onClick="@{()->ViewModel.activityClose()}"
-            android:text="@string/sign_in" />
+            android:text="@string/btn_sign_in" />
 
     </LinearLayout>
 
