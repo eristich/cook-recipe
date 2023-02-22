@@ -18,6 +18,10 @@ class UsersRepository {
         return auth.createUserWithEmailAndPassword(email, password)
     }
 
+    fun loginUser(email: String,password: String):Task<AuthResult>{
+        return auth.signInWithEmailAndPassword(email,password)
+    }
+
    /* companion object {
         const val TAG = "UserRepo"
     }*/
