@@ -3,6 +3,12 @@
     <string name="app_name">Cook Recipe</string>
     <string name="username">Username (email)</string>
     <string name="password">Password</string>
+    <!--    Home-->
+    <string name="textView_home">Welcome into Cook Recipe</string>
+    <string name="textView_home_subtext">Login for more functionality</string>
+    <!--Search -->
+    <string name="input_search">Search a recipe</string>
+    <string name="btn_search">Search</string>
     <!--Register -->
     <string name="password_conf">Confirm password</string>
     <string name="sign_up">Register</string>

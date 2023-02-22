@@ -4,6 +4,12 @@
     <string name="app_name">Recette de cuisine</string>
     <string name="username">Nom utilisateur (courriel)</string>
     <string name="password">Mots de passe</string>
+    <!--Home-->
+    <string name="textView_home">Bienvenue dans Recette de cuisine</string>
+    <string name="textView_home_subtext">Connecter vous pour plus de fonctionnalité</string>
+    <!--Search-->
+    <string name="input_search">Rechercher une recette</string>
+    <string name="btn_search">Recherche</string>
     <!--Register-->
     <string name="password_conf">Confirmation</string>
     <string name="sign_up">Création de compte</string>
