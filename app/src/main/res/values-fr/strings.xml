@@ -10,11 +10,13 @@
     <!--Search-->
     <string name="input_search">Rechercher une recette</string>
     <string name="btn_search">Recherche</string>
+    <!--Login-->
+    <string name="sign_in">Connectez-vous</string>
+    <string name="btn_sign_in">Me connecter</string>
     <!--Register-->
     <string name="password_conf">Confirmation</string>
     <string name="sign_up">Création de compte</string>
     <string name="btn_sign_up">Créer mon compte</string>
-    <string name="btn_sign_in">Me connecter</string>
     <!--Error-->
     <!--Register-->
     <string name="error_sign_up">Désolé, une erreur s\'est produite lors de l\'enregistrement</string>

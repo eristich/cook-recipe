@@ -9,10 +9,12 @@
     <!--Search -->
     <string name="input_search">Search a recipe</string>
     <string name="btn_search">Search</string>
+    <!--Login-->
+    <string name="sign_in">Login</string>
+    <string name="btn_sign_up">sign-up</string>
     <!--Register -->
     <string name="password_conf">Confirm password</string>
     <string name="sign_up">Register</string>
-    <string name="btn_sign_up">sign-up</string>
     <string name="btn_sign_in">Sign in</string>
     <!--    Error String-->
     <!--Register -->
