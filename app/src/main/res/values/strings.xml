@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--Generale-->
     <string name="app_name">Cook Recipe</string>
@@ -12,18 +13,19 @@
     <!--Login-->
     <string name="sign_in">Login</string>
     <string name="btn_sign_up">sign-up</string>
+    <string name="success_sign_in">Connect successfully</string>
+    <string name="error_sign_in">failed connection</string>
     <!--Register -->
     <string name="password_conf">Confirm password</string>
     <string name="sign_up">Register</string>
     <string name="btn_sign_in">Sign in</string>
-    <!--    Error String-->
-    <!--Register -->
     <string name="error_sign_up">Sorry, an error occurred during registration</string>
+    <string name="success_sign_up">Your account has been successfully created</string>
+    <!--Error-->
     <string name="error_no_username">No user name entered</string>
     <string name="error_no_password">No password entered</string>
     <string name="error_length_password">Your password must contain at least 6 characters</string>
     <string name="error_password_not_match">The passwords, do not match</string>
-    <!--    Success -->
-    <!-- Register -->
-    <string name="success_sign_up">Your account has been successfully created</string>
+
+
 </resources>
