@@ -7,7 +7,7 @@
     <string name="password_conf">Confirm password</string>
     <string name="sign_up">Register</string>
     <string name="btn_sign_up">sign-up</string>
-    <string name="sign_in">Sign in</string>
+    <string name="btn_sign_in">Sign in</string>
     <!--    Error String-->
     <!--Register -->
     <string name="error_sign_up">Sorry, an error occurred during registration</string>
