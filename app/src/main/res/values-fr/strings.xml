@@ -7,6 +7,8 @@
     <!--Home-->
     <string name="textView_home">Bienvenue dans Recette de cuisine</string>
     <string name="textView_home_subtext">Connecter vous pour plus de fonctionnalité</string>
+    <string name="textView_home_subtext_is_connected">Bonjour %s</string>
+    <string name="logout">Disconnect</string>
     <!--Search-->
     <string name="input_search">Rechercher une recette</string>
     <string name="btn_search">Recherche</string>

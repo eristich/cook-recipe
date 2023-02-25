@@ -7,6 +7,9 @@
     <!--    Home-->
     <string name="textView_home">Welcome into Cook Recipe</string>
     <string name="textView_home_subtext">Login for more functionality</string>
+    <string name="textView_home_subtext_is_connected">Hi %s</string>
+    <string name="logout">Disconnect</string>
+
     <!--Search -->
     <string name="input_search">Search a recipe</string>
     <string name="btn_search">Search</string>
