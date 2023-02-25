@@ -25,8 +25,4 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-//    fun handleLogin(view: View){
-//        val loginActivity = Intent(this@MainActivity,LoginActivity::class.java)
-//        startActivity(loginActivity)
-//    }
 }
