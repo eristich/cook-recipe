@@ -22,7 +22,7 @@ class UsersRepository {
         return auth.signInWithEmailAndPassword(email,password)
     }
 
-   /* companion object {
-        const val TAG = "UserRepo"
-    }*/
+    fun logoutUser() {
+        return auth.signOut()
+    }
 }
