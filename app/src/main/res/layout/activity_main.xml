@@ -27,7 +27,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="10"
-            android:gravity="center"
             android:hint="@string/input_search"
             android:inputType="text"
             android:minHeight="50dp"
@@ -40,9 +39,9 @@
             android:layout_gravity="center"
             android:text="@string/btn_search" />
 
-        <Space
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="200dp" />
+            android:layout_height="323dp" />
 
         <TextView
             android:id="@+id/homeText"
