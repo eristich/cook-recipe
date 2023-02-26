@@ -1,4 +1,4 @@
-package com.example.cookrecipe
+package com.example.cookrecipe.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.cookrecipe.R
 import com.example.cookrecipe.view_model.MainViewModel
 import com.example.cookrecipe.view_model.MainViewModel.Companion.TAG
 

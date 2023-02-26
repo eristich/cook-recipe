@@ -1,4 +1,4 @@
-package com.example.cookrecipe
+package com.example.cookrecipe.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.example.cookrecipe.R
 import com.example.cookrecipe.databinding.ActivityLoginBinding
 import com.example.cookrecipe.view_model.LoginViewModel
 
