@@ -62,7 +62,6 @@
             android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{()->ViewModel.registerUser()}"
             android:text="@string/btn_sign_up" />
 
         <Space
@@ -73,7 +72,6 @@
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:onClick="@{()->ViewModel.activityClose()}"
             android:text="@string/btn_sign_in" />
 
     </LinearLayout>

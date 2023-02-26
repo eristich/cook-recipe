@@ -38,6 +38,7 @@ class RegisterActivity : AppCompatActivity(), RegisterViewModel.ActivityListener
 
         val btnRegister: Button = findViewById(R.id.btn_register)
         btnRegister.setOnClickListener {
+            viewModel.registerUser() //Create new user
         }
 
         val btnLogin: Button = findViewById(R.id.btn_login)
