@@ -7,7 +7,8 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class UsersRepository {
+object FirebaseAuth {
+    // Instance of firebase object
     private var auth: FirebaseAuth = Firebase.auth
 
     fun getUserAuth(): FirebaseUser? {

@@ -6,11 +6,11 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.cookrecipe.R
-import com.example.cookrecipe.model.repo.UsersRepository
+import com.example.cookrecipe.model.repo.FirebaseAuth
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
-    private var usersRepository: UsersRepository = UsersRepository()
+    private var firebaseAuth: FirebaseAuth = FirebaseAuth
     private val mutableMsgToast = MutableLiveData<String>()
     val msgToast: LiveData<String> get() = mutableMsgToast
     var activityListener: ActivityListener? = null
@@ -18,11 +18,11 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     var password: String = ""
 
     /**
-     * Get data is valid for create new user
+     * Get data is valid for logged user
      * @return boolean true or false if bad data send
      */
     private fun dataValidator(): Boolean {
-        Log.d(RegisterViewModel.TAG, "registerUser: Data validator length of Password = " + this.password.length)
+
         return if (email.isEmpty()) {
             mutableMsgToast.value =
                 getApplication<Application>().getString(R.string.error_no_username)
@@ -48,10 +48,10 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
         // Check data input
         if (this.dataValidator()) {
 
-            val taskResult = usersRepository.loginUser(email, password)
+            val taskResult = firebaseAuth.loginUser(email, password)
 
             taskResult.addOnCompleteListener { tasks ->
-                Log.d(RegisterViewModel.TAG, "LoginUser: " + tasks.isSuccessful)
+                Log.d(TAG, "LoginUser: " + tasks.isSuccessful)
                 if (tasks.isSuccessful) {
                     mutableMsgToast.value =
                         getApplication<Application>().getString(R.string.success_sign_in)
@@ -74,11 +74,12 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     /**
      * Close the current activity
      */
-    fun activityClose() {
+    private fun activityClose() {
         activityListener?.onClose()
     }
-    companion object{
+
+    companion object {
         // define TAG of console
-        // const val TAG: String = "Main-ModelView"
+         const val TAG: String = "Main-ModelView"
     }
 }

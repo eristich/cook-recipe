@@ -6,11 +6,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.AndroidViewModel
 import com.example.cookrecipe.R
-import com.example.cookrecipe.model.repo.UsersRepository
+import com.example.cookrecipe.model.repo.FirebaseAuth
 
 
 class RegisterViewModel(application: Application) : AndroidViewModel(application) {
-    private var usersRepository: UsersRepository = UsersRepository()
+    private var firebaseAuth: FirebaseAuth = FirebaseAuth
     private val mutableMsgToast = MutableLiveData<String>()
     var email: String = ""
     var password: String = ""
@@ -19,8 +19,8 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
 
     var activityListener: ActivityListener? = null
 
-    fun getUsers(): UsersRepository {
-        return usersRepository
+    fun getUsers(): FirebaseAuth {
+        return firebaseAuth
     }
 
     /**
@@ -58,7 +58,7 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
         // Check data input
         if (this.dataValidator()) {
 
-            val taskResult = usersRepository.createUser(email, password)
+            val taskResult = firebaseAuth.createUser(email, password)
 
             taskResult.addOnCompleteListener { tasks ->
                 Log.d(TAG, "registerUser: " + tasks.isSuccessful)
@@ -84,7 +84,7 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
     /**
      * Close the current activity
      */
-    fun activityClose() {
+    private fun activityClose() {
         activityListener?.onClose()
     }
 
