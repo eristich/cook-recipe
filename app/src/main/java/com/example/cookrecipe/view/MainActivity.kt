@@ -14,6 +14,7 @@ import com.example.cookrecipe.view_model.MainViewModel.Companion.TAG
 class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MainViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -33,6 +34,10 @@ class MainActivity : AppCompatActivity() {
         val btnLogin: Button = findViewById(R.id.btn_login)
 
         val user = viewModel.getUser()
+
+        /**
+         * User UI Part
+         */
 
         // If user is logged
         if (user != null) {
@@ -55,5 +60,18 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this@MainActivity, LoginActivity::class.java))
             }
         }
+
+        /**
+         * Recipe drawing Part
+         */
+
+        /*TODO add check search is not null */
+
+        // call searchRecipe
+        viewModel.searchRecipe("pasta")
+
+        /*TODO use viewModel.recipe an observer */
+
+
     }
 }
