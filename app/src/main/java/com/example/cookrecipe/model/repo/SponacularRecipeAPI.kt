@@ -52,7 +52,7 @@ object SpoonacularRecipeAPI {
      * Setup new service form spoonacular API
      * Using Interface
      */
-    fun <T> CreateService(ServiceClass: Class<T>): T {
+    fun <T> createService(ServiceClass: Class<T>): T {
         return spoonacular.create(ServiceClass)
     }
 
