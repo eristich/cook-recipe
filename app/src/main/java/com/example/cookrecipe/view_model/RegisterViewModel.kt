@@ -11,11 +11,11 @@ import com.example.cookrecipe.model.repo.FirebaseAuth
 
 class RegisterViewModel(application: Application) : AndroidViewModel(application) {
     private var firebaseAuth: FirebaseAuth = FirebaseAuth
-    private val mutableMsgToast = MutableLiveData<String>()
+    private val _msgToast = MutableLiveData<String>()
     var email: String = ""
     var password: String = ""
     var passwordConf: String = ""
-    val msgToast: LiveData<String> get() = mutableMsgToast
+    val msgToast: LiveData<String> get() = _msgToast
 
     var activityListener: ActivityListener? = null
 
@@ -30,19 +30,19 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
     private fun dataValidator(): Boolean {
         Log.d(TAG, "registerUser: Data validator length of Password = " + this.password.length)
         return if (email.isEmpty()) {
-            mutableMsgToast.value =
+            _msgToast.value =
                 getApplication<Application>().getString(R.string.error_no_username)
             false
         } else if (password.isEmpty()) {
-            mutableMsgToast.value =
+            _msgToast.value =
                 getApplication<Application>().getString(R.string.error_no_password)
             false
         } else if (password.length < 6) {
-            mutableMsgToast.value =
+            _msgToast.value =
                 getApplication<Application>().getString(R.string.error_length_password)
             false
         } else if (password != passwordConf) {
-            mutableMsgToast.value =
+            _msgToast.value =
                 getApplication<Application>().getString(R.string.error_password_not_match)
             false
         } else {
@@ -63,11 +63,11 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
             taskResult.addOnCompleteListener { tasks ->
                 Log.d(TAG, "registerUser: " + tasks.isSuccessful)
                 if (tasks.isSuccessful) {
-                    mutableMsgToast.value =
+                    _msgToast.value =
                         getApplication<Application>().getString(R.string.success_sign_up)
                     activityClose()
                 } else {
-                    mutableMsgToast.value =
+                    _msgToast.value =
                         getApplication<Application>().getString(R.string.error_sign_up)
                 }
             }

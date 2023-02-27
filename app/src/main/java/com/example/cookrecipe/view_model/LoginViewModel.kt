@@ -11,8 +11,8 @@ import com.example.cookrecipe.model.repo.FirebaseAuth
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     private var firebaseAuth: FirebaseAuth = FirebaseAuth
-    private val mutableMsgToast = MutableLiveData<String>()
-    val msgToast: LiveData<String> get() = mutableMsgToast
+    private val _msgToast = MutableLiveData<String>()
+    val msgToast: LiveData<String> get() = _msgToast
     var activityListener: ActivityListener? = null
     var email: String = ""
     var password: String = ""
@@ -24,15 +24,15 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     private fun dataValidator(): Boolean {
 
         return if (email.isEmpty()) {
-            mutableMsgToast.value =
+            _msgToast.value =
                 getApplication<Application>().getString(R.string.error_no_username)
             false
         } else if (password.isEmpty()) {
-            mutableMsgToast.value =
+            _msgToast.value =
                 getApplication<Application>().getString(R.string.error_no_password)
             false
         } else if (password.length < 6) {
-            mutableMsgToast.value =
+            _msgToast.value =
                 getApplication<Application>().getString(R.string.error_length_password)
             false
         } else {
@@ -53,11 +53,11 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
             taskResult.addOnCompleteListener { tasks ->
                 Log.d(TAG, "LoginUser: " + tasks.isSuccessful)
                 if (tasks.isSuccessful) {
-                    mutableMsgToast.value =
+                    _msgToast.value =
                         getApplication<Application>().getString(R.string.success_sign_in)
                     activityClose()
                 } else {
-                    mutableMsgToast.value =
+                    _msgToast.value =
                         getApplication<Application>().getString(R.string.error_sign_in)
                 }
             }
