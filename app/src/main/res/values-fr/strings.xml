@@ -12,6 +12,7 @@
     <!--Search-->
     <string name="input_search">Rechercher une recette</string>
     <string name="btn_search">Recherche</string>
+    <string name="error_search_empty_string">Merci d\'indiquer un nom de recette</string>
     <!--Login-->
     <string name="sign_in">Connectez-vous</string>
     <string name="btn_sign_in">Me connecter</string>
