@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.cookrecipe.R
 import com.example.cookrecipe.model.data.RecipeSearchResponse
 import com.example.cookrecipe.model.interfaces.SpoonacularSearch
 import com.example.cookrecipe.model.repo.FirebaseAuth
@@ -29,6 +30,13 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     // The recipe list
     val recipes: LiveData<RecipeSearchResponse> = _recipe
 
+    // Val of Search input
+    var searchVal: String = ""
+
+    // Make toast live data
+    private val _msgToast = MutableLiveData<String>()
+    val msgToast: LiveData<String> get() = _msgToast
+
 
     /**
      * Return FireBase User
@@ -46,26 +54,31 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     /**
      * Search Recipe
-     * @param searchVal current name of plat
      */
-    fun searchRecipe(searchVal: String) {
+    fun searchRecipe() {
 
         Log.d(TAG, "searchRecipe: $searchVal")
-        
-        CoroutineScope(Dispatchers.IO).launch {
-            Log.d(TAG, "searchRecipe: LAUNCH COROUTINE")
 
-            val response = spoonacularSearch.searchRecipe(searchVal,30)
+        if (searchVal.isNotEmpty()) {
 
-            if (response.isSuccessful){
-                _recipe.postValue(response.body())
-                Log.d(TAG, "searchRecipe:  SUCCESS ${response.body()}")
+            CoroutineScope(Dispatchers.IO).launch {
+                Log.d(TAG, "searchRecipe: LAUNCH COROUTINE")
+
+                val response = spoonacularSearch.searchRecipe(searchVal, 30)
+
+                if (response.isSuccessful) {
+                    _recipe.postValue(response.body())
+                    Log.d(TAG, "searchRecipe:  SUCCESS ${response.body()}")
+                } else {
+                    Log.d(TAG, "searchRecipe: http code ${response.code()}")
+                }
             }
-            else{
-                Log.d(TAG, "searchRecipe: http code ${response.code()}")
-            }
 
+        } else {
+            _msgToast.value =
+                getApplication<Application>().getString(R.string.error_search_empty_string)
         }
+
     }
 
 
