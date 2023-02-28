@@ -17,7 +17,7 @@ import kotlinx.coroutines.runBlocking
 
 class RecipeViewModel(application: Application) : AndroidViewModel(application) {
 
-    private var recipeId: Int = 1
+    var recipeId: Int = 1
     var title: String = ""
     var url: String = ""
     private var spoonacularRecipe: SpoonacularRecipe =

@@ -1,6 +1,7 @@
 package com.example.cookrecipe.view
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -9,6 +10,7 @@ import androidx.core.text.HtmlCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.cookrecipe.R
 import com.example.cookrecipe.view_model.RecipeViewModel
+import com.example.cookrecipe.view_model.RecipeViewModel.Companion.TAG
 import com.squareup.picasso.Picasso
 
 class RecipeActivity : AppCompatActivity() {
@@ -20,6 +22,11 @@ class RecipeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_recipe)
 
         viewModel = ViewModelProvider(this@RecipeActivity)[RecipeViewModel::class.java]
+
+
+        Log.d(TAG, "onCreate Intent: ${intent.getStringExtra("recipeId")}")
+
+        viewModel.recipeId = intent.getIntExtra("recipeId",1)
 
         // get the recipe value
         viewModel.getRecipe()
