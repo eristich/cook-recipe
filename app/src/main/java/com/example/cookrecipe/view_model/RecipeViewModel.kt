@@ -5,13 +5,26 @@ import android.content.Intent
 import android.util.Log
 import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.cookrecipe.R
+import com.example.cookrecipe.model.data.Recipe
+import com.example.cookrecipe.model.interfaces.SpoonacularRecipe
+import com.example.cookrecipe.model.repo.SpoonacularRecipeAPI
 import com.example.cookrecipe.view.RecipeActivity
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class RecipeViewModel(application: Application) : AndroidViewModel(application) {
 
-    private var title: String = ""
-    private var url: String = ""
+    private var recipeId: Int = 1
+    var title: String = ""
+    var url: String = ""
+    private var spoonacularRecipe: SpoonacularRecipe =
+        SpoonacularRecipeAPI.createService(SpoonacularRecipe::class.java)
+
+    private var _recipe = MutableLiveData<Recipe>()
+    val recipe: LiveData<Recipe> = _recipe
 
     /**
      * Call send data to other user
@@ -29,6 +42,20 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
         val shareIntent = Intent.createChooser(sendIntent, null)
         Log.d(TAG, "shareRecipe: startup now")
         startActivity(context, shareIntent, null)
+    }
+
+    fun getRecipe() {
+        runBlocking {
+            launch {
+                val response = spoonacularRecipe.getThisRecipe(recipeId)
+                if (response.isSuccessful) {
+                    _recipe.value = response.body()
+                    Log.d(TAG, "getRecipe: ${response.body()?.sourceUrl}")
+                } else {
+                    Log.i(TAG, "getRecipe: Http error ${response.code()}")
+                }
+            }
+        }
     }
 
     companion object {

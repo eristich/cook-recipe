@@ -1,5 +1,7 @@
 package com.example.cookrecipe.model.data.recipe
 
+import kotlin.jvm.internal.Ref.ObjectRef
+
 
 data class Ingredients(
     val id:Int?,
@@ -10,7 +12,7 @@ data class Ingredients(
     val original:String?,
     val originalName:String?,
     val consistency:String?,
-    val measures: List<Measures>?
+    val measures: ObjectRef<Measures>?
 )
 
 
