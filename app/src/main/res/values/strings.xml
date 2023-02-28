@@ -4,12 +4,11 @@
     <string name="app_name">Cook Recipe</string>
     <string name="username">Username (email)</string>
     <string name="password">Password</string>
-    <!--    Home-->
+    <!--Home-->
     <string name="textView_home">Welcome into Cook Recipe</string>
     <string name="textView_home_subtext">Login for more functionality</string>
     <string name="textView_home_subtext_is_connected">Hi %s</string>
     <string name="logout">Disconnect</string>
-
     <!--Search -->
     <string name="input_search">Search a recipe</string>
     <string name="btn_search">Search</string>
@@ -30,6 +29,15 @@
     <string name="error_no_password">No password entered</string>
     <string name="error_length_password">Your password must contain at least 6 characters</string>
     <string name="error_password_not_match">The passwords, do not match</string>
+    <!--Recipe-->
+    <string name="recipe_pic_desc">Image of the recipe</string>
+    <string name="btn_sharing">Sharing</string>
+    <string name="content_sharing">I found this recipe %1s look: %2s</string>
+    <string name="readyInMinutes">ready in %1s minutes</string>
+    <string name="recipe_url">On website : %s</string>
+    <string name="recipe_ingredient">"Ingredients : "</string>
+    <string name="vegan_icon">Vegan</string>
+    <string name="vegetarian_icon">Vegetarian</string>
 
 
 </resources>
