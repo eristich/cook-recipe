@@ -10,14 +10,19 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.cookrecipe.R
 import com.example.cookrecipe.databinding.ActivityMainBinding
+import com.example.cookrecipe.view.adapters.OnItemClickListener
+import com.example.cookrecipe.view.adapters.RecipeSearchListAdapter
 import com.example.cookrecipe.view_model.MainViewModel
 import com.example.cookrecipe.view_model.MainViewModel.Companion.TAG
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MainViewModel
+    private lateinit var recipeSearchList: RecyclerView // = findViewById<RecyclerView>(R.id.recipe_search_list_recycler_view)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +38,10 @@ class MainActivity : AppCompatActivity() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = this@MainActivity
         Log.d(TAG, "onCreate: ${viewModel.searchVal}")
+
+        // configure recycler view
+        recipeSearchList = findViewById(R.id.recipe_search_list_recycler_view)
+        recipeSearchList.layoutManager = LinearLayoutManager(this)
     }
 
     override fun onResume() {
@@ -95,7 +104,19 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this@MainActivity, message, Toast.LENGTH_SHORT).show()
         }
 
-        /*TODO use viewModel.recipe an observer */
-
+        /**
+         * Check if recipe list as change and add callback
+         * to open recipe activity when recipe card was clicked
+         */
+        viewModel.recipes.observe(this@MainActivity) { recipe ->
+            val adapter = RecipeSearchListAdapter(recipe, object: OnItemClickListener {
+                override fun onItemClick(position: Int) {
+                    val intent = Intent(this@MainActivity, RecipeActivity::class.java)
+                    intent.putExtra("recipeId", recipe.results[position].id)
+                    startActivity(intent)
+                }
+            })
+            recipeSearchList.adapter = adapter
+        }
     }
 }
