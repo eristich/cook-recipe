@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Generale-->
+    <string name="app_name">Recette de cuisine</string>
+    <string name="username">Nom utilisateur (courriel)</string>
+    <string name="password">Mots de passe</string>
+    <!--Home-->
+    <string name="textView_home">Bienvenue dans Recette de cuisine</string>
+    <string name="textView_home_subtext">Connecter vous pour plus de fonctionnalité</string>
+    <string name="textView_home_subtext_is_connected">Bonjour %s</string>
+    <string name="logout">Disconnect</string>
+    <!--Search-->
+    <string name="input_search">Rechercher une recette</string>
+    <string name="btn_search">Recherche</string>
+    <string name="error_search_empty_string">Merci d\'indiquer un nom de recette</string>
+    <!--Login-->
+    <string name="sign_in">Connectez-vous</string>
+    <string name="btn_sign_in">Me connecter</string>
+    <string name="success_sign_in">Connecter avec succès</string>
+    <string name="error_sign_in">Échec de connection</string>
+    <!--Register-->
+    <string name="password_conf">Confirmation</string>
+    <string name="sign_up">Création de compte</string>
+    <string name="btn_sign_up">Créer mon compte</string>
+    <string name="error_sign_up">Désolé, une erreur s\'est produite lors de l\'enregistrement</string>
+    <string name="success_sign_up">Votre compte a été créé avec succès</string>
+    <!--Error-->
+    <string name="error_no_username">Vous n\'avez pas fourni de mon utilisateur</string>
+    <string name="error_no_password">Vous n\'avez pas saisi de mot de passe</string>
+    <string name="error_length_password">Votre mots de passe doits contenire 6 caratère minimume</string>
+    <string name="error_password_not_match">Les mots de passe ne correspondent pas</string>
+
+
+</resources>
