@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.RecipeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="1dp">
+
+        <ImageView
+            android:id="@+id/recipe_master_picture"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/recipe_pic_desc" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recipe_master_picture">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/recipe_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="25dp"
+                            android:text="@string/app_name" />
+
+                        <TextView
+                            android:id="@+id/recipe_readyInMinutes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/readyInMinutes" />
+                    </LinearLayout>
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <Button
+                            android:id="@+id/btn_sharing"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity=""
+                            android:layout_column="1"
+                            android:text="@string/btn_sharing" />
+
+                        <ImageView
+                            android:id="@+id/recipe_vegan_icon"
+                            android:layout_column="1"
+                            android:layout_row="1"
+                            android:layout_width="40dp"
+                            android:layout_gravity="start"
+                            android:contentDescription="@string/vegan_icon"
+                            android:layout_height="40dp"
+                            />
+
+                        <ImageView
+                            android:id="@+id/recipe_vegetarian_icon"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_row="1"
+                            android:contentDescription="@string/vegetarian_icon"
+                            android:layout_gravity="end"
+                            android:layout_column="1" />
+                    </GridLayout>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/recipe_ingredient"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/recipe_ingredient"/>
+
+                <TextView
+                    android:id="@+id/recipe_desc"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoLink="web"
+                    android:ems="12"
+                    android:lineSpacingExtra="3dp"
+                    tools:ignore="VisualLintLongText,VisualLintLocaleText"/>
+
+                <TextView
+                    android:id="@+id/recipe_url"
+                    android:layout_marginTop="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoLink="web"
+                    android:ems="12"
+                    android:text="@string/app_name"
+                    tools:ignore="VisualLintLongText" />
+
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
