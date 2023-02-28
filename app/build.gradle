@@ -60,6 +60,9 @@ dependencies {
     // Add viewModal scope for coroutine
     implementation('androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1')
 
+    // RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     // Retrofit with Scalar Converter
