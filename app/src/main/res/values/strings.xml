@@ -15,8 +15,8 @@
     <string name="error_search_empty_string">Please indicate a recipe name</string>
     <!--Login-->
     <string name="sign_in">Login</string>
-    <string name="btn_sign_up">sign-up</string>
-    <string name="success_sign_in">Connect successfully</string>
+    <string name="btn_sign_up">Sign up</string>
+    <string name="success_sign_in">connect successfully</string>
     <string name="error_sign_in">failed connection</string>
     <!--Register -->
     <string name="password_conf">Confirm password</string>
@@ -28,14 +28,14 @@
     <string name="error_no_username">No user name entered</string>
     <string name="error_no_password">No password entered</string>
     <string name="error_length_password">Your password must contain at least 6 characters</string>
-    <string name="error_password_not_match">The passwords, do not match</string>
+    <string name="error_password_not_match">The passwords do not match</string>
     <!--Recipe-->
     <string name="recipe_pic_desc">Image of the recipe</string>
     <string name="btn_sharing">Sharing</string>
     <string name="content_sharing">I found this recipe %1s look: %2s</string>
     <string name="readyInMinutes">ready in %1s minutes</string>
-    <string name="recipe_url">On website : %s</string>
-    <string name="recipe_ingredient">"Ingredients : "</string>
+    <string name="recipe_url">On website:  %s</string>
+    <string name="recipe_ingredient">"Ingredients:  "</string>
     <string name="vegan_icon">Vegan</string>
     <string name="vegetarian_icon">Vegetarian</string>
 

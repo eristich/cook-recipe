@@ -6,37 +6,37 @@
     <string name="password">Mots de passe</string>
     <!--Home-->
     <string name="textView_home">Bienvenue dans Recette de cuisine</string>
-    <string name="textView_home_subtext">Connecter vous pour plus de fonctionnalité</string>
+    <string name="textView_home_subtext">Connectez-vous pour plus de fonctionnalité</string>
     <string name="textView_home_subtext_is_connected">Bonjour %s</string>
-    <string name="logout">Disconnect</string>
+    <string name="logout">Déconnexion</string>
     <!--Search-->
     <string name="input_search">Rechercher une recette</string>
     <string name="btn_search">Recherche</string>
-    <string name="error_search_empty_string">Merci d\'indiquer un nom de recette</string>
+    <string name="error_search_empty_string">Merci d\’indiquer un nom de recette</string>
     <!--Login-->
     <string name="sign_in">Connectez-vous</string>
     <string name="btn_sign_in">Me connecter</string>
-    <string name="success_sign_in">Connecter avec succès</string>
-    <string name="error_sign_in">Échec de connection</string>
+    <string name="success_sign_in">Connecté avec succès</string>
+    <string name="error_sign_in">Échec de connexion</string>
     <!--Register-->
     <string name="password_conf">Confirmation</string>
-    <string name="sign_up">Création de compte</string>
+    <string name="sign_up">Création de comptes</string>
     <string name="btn_sign_up">Créer mon compte</string>
-    <string name="error_sign_up">Désolé, une erreur s\'est produite lors de l\'enregistrement</string>
+    <string name="error_sign_up">Désolé, une erreur s\’est produite lors de l\'enregistrement</string>
     <string name="success_sign_up">Votre compte a été créé avec succès</string>
     <!--Error-->
-    <string name="error_no_username">Vous n\'avez pas fourni de mon utilisateur</string>
-    <string name="error_no_password">Vous n\'avez pas saisi de mot de passe</string>
-    <string name="error_length_password">Votre mots de passe doits contenire 6 caratère minimume</string>
+    <string name="error_no_username">Vous n\’avez pas fourni de mon utilisateur</string>
+    <string name="error_no_password">Vous n\’avez pas saisi de mots de passe</string>
+    <string name="error_length_password">Votre mot de passe doit contenir 6 caractères minimum</string>
     <string name="error_password_not_match">Les mots de passe ne correspondent pas</string>
     <!--Recipe-->
     <string name="recipe_pic_desc">Image de la recette</string>
     <string name="btn_sharing">Partager</string>
-    <string name="content_sharing">J\'ai trouvée cette recete %1s regarde : %2s</string>
+    <string name="content_sharing">J\'ait trouvée cette recette %1s regarde : %2s</string>
     <string name="readyInMinutes">prêt en %1s minutes</string>
-    <string name="recipe_url">Sur le site web : %s</string>
-    <string name="recipe_ingredient">"Ingredients : "</string>
-    <string name="vegan_icon">Vegan</string>
+    <string name="recipe_url">Sur le site web : %s</string>
+    <string name="recipe_ingredient">"Ingredients : "</string>
+    <string name="vegan_icon">Végétalien</string>
     <string name="vegetarian_icon">Végétarien</string>
 
 
